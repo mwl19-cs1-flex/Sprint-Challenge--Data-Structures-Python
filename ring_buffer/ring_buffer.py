@@ -17,7 +17,10 @@ class RingBuffer:
                 # If it is, set tail to the current value
                 self.current = self.storage.tail
             self.current.value = item
+            # We set the tail value to the new item
             self.current = self.current.prev
+            # We set the current value to the previous, which is the next recently used item
+
 
             # self.current = self.storage.tail.prev
             # print('current tail', self.current.value)

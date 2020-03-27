@@ -14,12 +14,12 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure ## SHOULD BE 64
 
 # Replace the nested for loops below with your improvements
-# RUNTIME O(n)
+# RUNTIME O(n log n)
 
 names1bst = BinarySearchTree(names_1[0])
-for name in names_1:
+for name in names_1: # O(n)
     names1bst.insert(name)
-for name in names_2:
+for name in names_2: # O(n)
     if names1bst.contains(name):
         duplicates.append(name)
 
