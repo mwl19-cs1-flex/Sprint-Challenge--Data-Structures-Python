@@ -13,8 +13,9 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure ## SHOULD BE 64
 
-
 # Replace the nested for loops below with your improvements
+# RUNTIME O(n)
+
 names1bst = BinarySearchTree(names_1[0])
 for name in names_1:
     names1bst.insert(name)
