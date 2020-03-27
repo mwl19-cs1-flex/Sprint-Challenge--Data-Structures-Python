@@ -10,17 +10,30 @@ class RingBuffer:
     # THIS DOES NOT WORK
     def append(self, item):
         if len(self.storage) == self.capacity:
-            # self.current = self.storage.head
-            # print('current head', self.current.value)
-            self.current = self.storage.tail.prev
-            print('current tail', self.current.value)
-            print('prev tail', self.current.prev.value)
-            print('next tail', self.current.next.value)
-            self.current.next.value = item
-            self.current = self.current.next 
+            # If length is the capacity, then we do not add to head
+            print(self.storage.tail.value)
+            if self.current is None:
+                # We need to see if self.current is none
+                # If it is, set tail to the current value
+                self.current = self.storage.tail
+            self.current.value = item
+            self.current = self.current.prev
+
+            # self.current = self.storage.tail.prev
+            # print('current tail', self.current.value)
+            # print('prev tail', self.current.prev.value)
+            # print('next tail', self.current.next.value)
+            # self.current.next.value = item
+            # print('current next', self.current.next.value)
+            # print('prev next', self.current.next.prev.value)
+            # self.storage.tail.prev = self.current.next
+            # self.storage.tail.prev = self.current.next
             # self.current = self.storage.tail.prev
         else:
             self.storage.add_to_head(item)
+            print('current head', self.storage.head.value)
+            print('current tail', self.storage.tail.value)
+            # This will set the tail to the last item
             
         # if len(self.storage) == self.capacity:
         #     print('current', self.current.value)
@@ -43,11 +56,11 @@ class RingBuffer:
         list_buffer_contents = []
 
         current = self.storage.tail
-
-        while current:
-            list_buffer_contents.append(current.value)
+        list_buffer_contents.append(current.value)
+        while current.prev:
             current = current.prev
-        
+            list_buffer_contents.append(current.value)
+        print(list_buffer_contents)
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
