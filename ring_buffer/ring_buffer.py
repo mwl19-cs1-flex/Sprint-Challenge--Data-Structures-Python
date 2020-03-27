@@ -10,31 +10,44 @@ class RingBuffer:
     # THIS DOES NOT WORK
     def append(self, item):
         if len(self.storage) == self.capacity:
-            node = self.current
-            self.storage.delete(node)
-            self.storage.add_to_head(item)
-            self.current = self.storage.head
+            # self.current = self.storage.head
+            # print('current head', self.current.value)
+            self.current = self.storage.tail.prev
+            print('current tail', self.current.value)
+            print('prev tail', self.current.prev.value)
+            print('next tail', self.current.next.value)
+            self.current.next.value = item
+            self.current = self.current.next 
+            # self.current = self.storage.tail.prev
         else:
-            if self.current is None:
-                self.storage.add_to_head(item)
-                self.current = self.storage.head
-            else:
-                self.storage.add_to_tail(item)
-                self.current = self.storage.tail
+            self.storage.add_to_head(item)
+            
+        # if len(self.storage) == self.capacity:
+        #     print('current', self.current.value)
+        #     self.current = self.storage.head
+        #     self.storage.head = self.current
+        #     print(self.current.value)
+        # else:
+        #     if self.current is None:
+        #         self.storage.add_to_head(item)
+        #         self.current = self.storage.head
+        #     else:
+        #         self.storage.add_to_tail(item)
+        #         self.current = self.storage.tail
                 # self.storage.head = self.storage.head.next
                 # self.current = self.storage.head
-
+    
     # THIS WORKS
     def get(self):
         # Note:  This is the only [] allowed
         list_buffer_contents = []
 
-        self.current = self.storage.head
-        current = self.current
+        current = self.storage.tail
+
         while current:
             list_buffer_contents.append(current.value)
-            current = current.next
-
+            current = current.prev
+        
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
