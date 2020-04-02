@@ -4,6 +4,8 @@ In this week's Sprint you implemented some classic and fundamental data structur
 
 ## Instructions
 
+I have read them!
+
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
 This is an individual assessment. All work must be your own. Your Challenge score is a measure of your ability to work independently using the material covered throughout this sprint. You need to demonstrate proficiency in the concepts and objectives that were introduced and that you practiced in the preceding days.
@@ -20,9 +22,9 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 This Sprint Challenge is split into three parts:
 
-1. Implement a data structure called a ring buffer (more details below)
-2. Optimizing some inefficient code
-3. Reversing the contents of a singly linked list
+1. Implement a data structure called a ring buffer (more details below) [ ]
+2. Optimizing some inefficient code [ ]
+3. Reversing the contents of a singly linked list [ X ]
 
 ### Minimum Viable Product
 
@@ -61,6 +63,7 @@ buffer.get()   # should return ['d', 'e', 'f']
 ```
 
 #### Task 2. Runtime Optimization
+** DONE! 
 
 ***!Important!*** If you are running this using PowerShell by clicking on the green play button, you will get an error that `names1.txt` is not found.  To resolve this, run it, get the error, then `cd` into the `names` directory in the `python` terminal that opens in VSCode.
 
@@ -73,7 +76,8 @@ Six seconds is an eternity so you've been tasked with speeding up the code. Can 
 (Hint: You might try importing a data structure you built during the week)
 
 
-#### Task 3. Reverse a Linked List Recursively
+#### Task 3. Reverse a Linked List Recursively 
+** DONE!
 
 Inside of the `reverse` directory, you'll find a basic implementation of a Singly Linked List. _Without_ making it a Doubly Linked List (adding a tail attribute), complete the `reverse_list()` function within `reverse/reverse.py` reverse the contents of the list using recursion, *not a loop.*
 
